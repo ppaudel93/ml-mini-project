@@ -1,7 +1,7 @@
 import os
 
 # Paths
-DATA_RAW_PATH = os.path.join("data", "raw", "depression_reddit_cleaned.csv")
+DATA_RAW_PATH = os.path.join("data", "raw", "depression_dataset_reddit_cleaned.csv")
 DATA_PROCESSED_DIR = os.path.join("data", "processed")
 MODEL_DIR = os.path.join("models")
 

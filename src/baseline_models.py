@@ -9,10 +9,17 @@ def get_baseline_models():
         "Multinomial Naive Bayes": MultinomialNB(),
         "LDA": LinearDiscriminantAnalysis(),
         "Logistic Regression (L2 Ridge)": LogisticRegression(
-            penalty='l2', solver='lbfgs', random_state=config.RANDOM_SEED, max_iter=1000
+            solver='lbfgs', 
+            l1_ratio=0,
+            random_state=config.RANDOM_SEED, 
+            max_iter=2000
         ),
         "Logistic Regression (L1 Lasso)": LogisticRegression(
-            penalty='l1', solver='saga', random_state=config.RANDOM_SEED, max_iter=1000
+            solver='saga', 
+            l1_ratio=1,
+            random_state=config.RANDOM_SEED, 
+            max_iter=2000,
+            tol=1e-3
         )
     }
     return models
