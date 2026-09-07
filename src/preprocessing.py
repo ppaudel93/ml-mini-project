@@ -4,11 +4,13 @@ from sklearn.decomposition import MiniBatchSparsePCA
 import config
 
 class DataPreprocessor:
-    def __init__(self):
-        self.vectorizer = TfidfVectorizer(**config.TFIDF_PARAMS)
-        self.sparse_pca = MiniBatchSparsePCA(
-            n_components=config.SPARSE_PCA_COMPONENTS, 
-            random_state=config.RANDOM_SEED
+    def __init__(self, max_features=10000, min_df=3, max_df=0.85):
+        self.vectorizer = TfidfVectorizer(
+            max_features=max_features,
+            min_df=min_df,
+            max_df=max_df,
+            ngram_range=(1, 2),
+            stop_words='english'  # Filters out common stop words (the, to, from, and, etc.)
         )
 
     def load_data(self, filepath):
